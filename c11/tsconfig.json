@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                     // modern JS output
+    "module": "CommonJS",                   // required by Node.js
+    "rootDir": "./src",                     // where your TS files live
+    "outDir": "./dist",                     // where compiled JS will go
+    "strict": true,                         // enables all strict type-checking
+    "esModuleInterop": true,                // allows default imports from CommonJS
+    "moduleResolution": "node",             // resolves modules like Node.js
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,                   // faster builds
+    "resolveJsonModule": true,              // allows importing .json files
+    "allowSyntheticDefaultImports": true    // smoother interop
+  },
+  "include": ["src"],                       // include your source folder
+  "exclude": ["node_modules", "dist"]       // ignore build/output
+}

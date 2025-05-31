@@ -1,0 +1,24 @@
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./db";
+
+import watchHistoryRouter from "./routes/watchHistory.routes";
+
+dotenv.config();
+const app = express();
+app.use("/api/watch", watchHistoryRouter);
+
+connectDB()
+  .then(() => {
+    app.on("error", (err) => {
+      console.error(`App error: ${err}`);
+      throw err;
+    });
+
+    app.listen(process.env.PORT || 8000, () => {
+      console.log(`Server is running on port ${process.env.PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error(`Failed to connect to MongoDB: ${err}`);
+  });
